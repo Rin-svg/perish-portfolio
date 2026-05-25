@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Réflexion Finale — Perish G.D. | Dossier CAS</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .quote-block{position:relative;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:48px 56px;margin-bottom:48px;overflow:hidden;}
+    .quote-block::before{content:'"';position:absolute;top:-30px;left:20px;font-family:'Playfair Display',serif;font-size:15rem;color:var(--gold);opacity:0.05;line-height:1;pointer-events:none;user-select:none;}
+    .quote-block blockquote{font-family:'Playfair Display',serif;font-size:clamp(1.3rem,3vw,1.9rem);font-style:italic;line-height:1.55;color:var(--cream);position:relative;z-index:1;margin-bottom:20px;}
+    .quote-attribution{font-size:0.85rem;color:var(--gold);font-weight:600;position:relative;z-index:1;}
+    .growth-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;margin-bottom:28px;position:relative;overflow:hidden;transition:var(--transition);}
+    .growth-card:hover{border-color:rgba(201,168,76,0.35);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,0.35);}
+    .growth-card-number{position:absolute;top:24px;right:28px;font-family:'Playfair Display',serif;font-size:4rem;font-weight:900;color:var(--gold);opacity:0.07;line-height:1;pointer-events:none;}
+    .growth-card h3{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;margin-bottom:16px;line-height:1.3;position:relative;z-index:1;}
+    .growth-card p{font-size:0.97rem;line-height:1.9;color:var(--muted);position:relative;z-index:1;}
+    .growth-card p strong{color:var(--text);}
+    .highlight-pull{border-left:3px solid var(--gold);padding:16px 24px;margin:20px 0;background:rgba(201,168,76,0.04);border-radius:0 12px 12px 0;font-style:italic;color:var(--cream)!important;font-size:1rem!important;}
+    .reflection-intro{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:40px;}
+    .obj-check-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px;margin-top:32px;}
+    .obj-check-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px 28px;display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:start;transition:var(--transition);}
+    .obj-check-card:hover{border-color:rgba(201,168,76,0.4);transform:translateY(-3px);}
+    .obj-check-num{width:48px;height:48px;border-radius:14px;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:0.9rem;font-weight:700;color:var(--gold);flex-shrink:0;}
+    .obj-check-body h4{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:700;margin-bottom:6px;line-height:1.3;}
+    .obj-check-body p{font-size:0.83rem;color:var(--muted);line-height:1.65;}
+    .obj-check-proof{margin-top:10px;display:flex;align-items:center;gap:6px;font-size:0.75rem;color:#4ade80;font-weight:600;font-family:'DM Mono',monospace;}
+    .obj-check-proof::before{content:'✓ ';color:#4ade80;}
+    .autoeval-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:28px;}
+    .autoeval-item{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 22px;transition:var(--transition);}
+    .autoeval-item:hover{border-color:rgba(201,168,76,0.3);}
+    .autoeval-label{font-size:0.82rem;color:var(--muted);margin-bottom:12px;line-height:1.4;}
+    .autoeval-stars{display:flex;gap:4px;}
+    .star{width:20px;height:20px;border-radius:4px;background:rgba(255,255,255,0.05);transition:var(--transition);}
+    .star.filled{background:var(--gold);}
+    .star.half{background:linear-gradient(90deg,var(--gold) 50%,rgba(255,255,255,0.05) 50%);}
+    .closing-section{background:linear-gradient(135deg,rgba(201,168,76,0.08),rgba(78,205,196,0.06),rgba(168,230,207,0.05));border:1px solid var(--border);border-radius:24px;padding:64px 56px;text-align:center;margin-top:64px;position:relative;overflow:hidden;}
+    .closing-section::before{content:'🌍';position:absolute;font-size:20rem;opacity:0.03;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;}
+    .closing-section h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:900;margin-bottom:20px;position:relative;z-index:1;}
+    .closing-section p{font-size:1.05rem;color:var(--muted);max-width:620px;margin:0 auto 32px;line-height:1.8;position:relative;z-index:1;}
+    .closing-section p strong{color:var(--text);}
+    .signature-block{display:inline-flex;flex-direction:column;align-items:center;gap:6px;position:relative;z-index:1;margin-top:16px;}
+    .signature-name{font-family:'Playfair Display',serif;font-size:1.6rem;font-style:italic;color:var(--gold);}
+    .signature-role{font-size:0.8rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;}
+    @media(max-width:768px){.reflection-intro{grid-template-columns:1fr;}.quote-block{padding:32px 28px;}.obj-check-grid{grid-template-columns:1fr;}.closing-section{padding:40px 24px;}}
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-logo">Perish G.D. · CAS</div>
+    <ul class="nav-links">
+      <li><a href="../index.html"><span class="nav-icon">🏠</span> Accueil</a></li>
+      <li><a href="profil.html"><span class="nav-icon">👤</span> Profil</a></li>
+      <li><a href="cas.html"><span class="nav-icon">⚡</span> Expériences/Preuves CAS</a></li>
+      <li><a href="timeline.html"><span class="nav-icon">📅</span> Ligne Temporelle</a></li>
+      <li><a href="projet-cas.html"><span class="nav-icon">🏆</span> Projet CAS</a></li>
+      <li><a href="reflexion.html" class="active"><span class="nav-icon">💭</span> Réflexion Finale</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="langFR" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" id="langEN" onclick="setLang('en')">EN</button>
+    </div>
+  </nav>
+
+  <div class="page-wrapper">
+    <div class="page-hero">
+      <div class="page-hero-bg" style="background:radial-gradient(ellipse 50% 60% at 50% 0%,rgba(168,230,207,0.1),transparent 70%),radial-gradient(ellipse 30% 40% at 20% 80%,rgba(201,168,76,0.08),transparent 60%)"></div>
+      <div class="page-hero-content">
+        <div class="section-tag">// Bilan · Croissance · Gratitude</div>
+        <h1><span>Réflexion</span> <em style="font-style:italic;color:var(--gold);">Finale</em></h1>
+        <p>Ce que le programme CAS m'a appris sur moi-même, sur les autres, et sur le monde qui m'entoure.</p>
+      </div>
+    </div>
+
+    <div class="section">
+
+      <!-- Citation d'ouverture -->
+      <div class="quote-block fade-in">
+        <blockquote>« À trop s'enfermer dans les études, on peut passer à côté d'expériences inouïes. »</blockquote>
+        <div class="quote-attribution">— Perish Guialakong Demanou, Juin 2026</div>
+      </div>
+
+      <!-- C · A · S intro -->
+      <div class="reflection-intro">
+        <div class="growth-card fade-in" style="margin-bottom:0;">
+          <div class="growth-card-number">C</div>
+          <span class="activity-tag" style="display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:100px;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px;background:rgba(78,205,196,0.15);color:var(--cas-c);">🎨 Créativité</span>
+          <h3>Mon accomplissement artistique</h3>
+          <p>Mon accomplissement artistique est sans doute l'une des compétences acquises dont je suis le plus fier. Le programme CAS m'a incité à explorer un univers qui m'était méconnu, où les émotions s'embrassent et font surgir les messages les plus percutants.</p>
+          <div class="highlight-pull">En débutant l'art, j'avais beaucoup de problèmes à agencer les couleurs. J'ai voulu abandonner à plusieurs reprises — jusqu'à ce que je comprenne que ce sentiment venait de me comparer aux autres.</div>
+          <p>J'ai changé de perspective, développé une discipline dans mon apprentissage, et de fil en aiguille, la machine s'est mise en marche. <strong>Je suis maintenant capable de peindre</strong>, et cela constitue pour moi une véritable passion. Les sculptures et les poèmes ont suivi, et j'ai construit ma propre bibliothèque artistique.</p>
+          <p style="margin-top:12px;">Au fond, l'art m'a éveillé l'esprit sur le fait que <strong>l'apprentissage est une possibilité souvent refoulée par le doute ou le manque de patience</strong>.</p>
+        </div>
+
+        <div class="growth-card fade-in" style="margin-bottom:0;">
+          <div class="growth-card-number">A</div>
+          <span class="activity-tag" style="display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:100px;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px;background:rgba(255,107,107,0.15);color:var(--cas-a);">🏃 Activité</span>
+          <h3>Embrasser mon environnement</h3>
+          <p>Au début du programme CAS, les cours et les autres projets du Baccalauréat International constituaient inconsciemment des excuses pour négliger les activités physiques. Le programme CAS m'a donné la possibilité d'embrasser mon environnement.</p>
+          <div class="highlight-pull">L'activité dont je suis le plus heureux jusqu'à présent, c'est le festival Yemba. Partir loin de chez soi n'est jamais facile, mais j'ai eu la possibilité de retrouver ce nid de mon enfance à travers ma communauté.</div>
+          <p>J'ai débuté avec le patinage — inédit pour moi en tant qu'immigrant — puis exploré Ottawa, découvert le snowboard en hiver. Pratiquer le basket-ball, le soccer, le tennis et la musculation m'a permis de réaliser <strong>l'importance d'une activité physique régulière dans la santé physique et mentale</strong>.</p>
+          <p style="margin-top:12px;">Je suis fier d'avoir su m'affranchir des préjugés et de m'être connecté avec mon environnement.</p>
+        </div>
+      </div>
+
+      <div class="growth-card fade-in">
+        <div class="growth-card-number">S</div>
+        <span class="activity-tag" style="display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:100px;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px;background:rgba(168,230,207,0.15);color:var(--cas-s);">🤝 Service</span>
+        <h3>La communauté, essence de chaque individu</h3>
+        <p>Une personne qui n'est pas connectée avec sa communauté passe à côté de plusieurs opportunités. Au cours de mon programme CAS, j'ai effectué plusieurs services avec dévotion, car j'avais en tête qu'il n'y a pas de « petits services ».</p>
+        <div class="highlight-pull">Le service qui m'a le plus marqué est celui de ADN (Africa Development Network). Avant de rejoindre cette association, l'entrepreneuriat n'était pour moi qu'un mythe. J'avais peur du contact avec les inconnus — mais j'ai réalisé que c'était le premier frein vers la réussite.</div>
+        <p>Le programme <strong>Impact Diaspora</strong> m'a permis de fouler le plancher du parlement canadien, ce qui constitue pour moi une grande fierté. Être bénévole dans un événement qui réunit des leaders de plusieurs communautés du monde entier est une opportunité unique d'instruction et d'inspiration.</p>
+        <p style="margin-top:12px;">J'ai retenu que <strong>le service est bilatéral</strong> : il fait du bien à autrui, mais aussi à celui qui le fait.</p>
+      </div>
+
+      <!-- 7 objectifs -->
+      <div class="section-header fade-in" style="margin:60px 0 40px;">
+        <div class="section-tag">// Les 7 objectifs d'apprentissage</div>
+        <h2 class="section-title" style="font-size:2rem;"><span>Preuves de</span> <em>croissance</em></h2>
+        <p class="section-desc">Comment chacun des 7 objectifs se manifeste dans mon parcours.</p>
+        <div class="divider"></div>
+      </div>
+
+      <div class="obj-check-grid">
+        <div class="obj-check-card fade-in">
+          <div class="obj-check-num">01</div>
+          <div class="obj-check-body">
+            <h4>Points forts &amp; domaines à améliorer</h4>
+            <p>Me comparer aux autres en peinture m'a révélé mon perfectionnisme. En changeant de perspective, j'ai transformé cette faiblesse en moteur de progression.</p>
+            <div class="obj-check-proof">Peinture, Patinage, Poèmes</div>
+          </div>
+        </div>
+        <div class="obj-check-card fade-in">
+          <div class="obj-check-num">02</div>
+          <div class="obj-check-body">
+            <h4>Relever de nouveaux défis</h4>
+            <p>Patiner pour la première fois, apprendre la flûte et le piano, découvrir le snowboard — chaque activité était inédite et exigeait un dépassement réel.</p>
+            <div class="obj-check-proof">Flûte, Piano, Patinage, Snowboard</div>
+          </div>
+        </div>
+        <div class="obj-check-card fade-in">
+          <div class="obj-check-num">03</div>
+          <div class="obj-check-body">
+            <h4>Initier et planifier</h4>
+            <p>J'ai personnellement initié mon engagement dans ADN et Impact Diaspora, planifié mes sessions de sculpture et organisé ma participation aux événements communautaires.</p>
+            <div class="obj-check-proof">Sculpture, ADN, Impact Diaspora</div>
+          </div>
+        </div>
+        <div class="obj-check-card fade-in">
+          <div class="obj-check-num">04</div>
+          <div class="obj-check-body">
+            <h4>Engagement et persévérance</h4>
+            <p>18 mois d'implication continue malgré les exigences du BI. Continuer à écrire des poèmes et à peindre même dans les périodes chargées témoigne de cet engagement.</p>
+            <div class="obj-check-proof">Poèmes (18 mois), CEPAP, Peinture</div>
+          </div>
+        </div>
+        <div class="obj-check-card fade-in">
+          <div class="obj-check-num">05</div>
+          <div class="obj-check-body">
+            <h4>Collaboration</h4>
+            <p>Le soccer, l'annuaire scolaire, les Olympiades et ADN m'ont appris à travailler en équipe, à écouter, et à m'adapter aux dynamiques de groupe.</p>
+            <div class="obj-check-proof">Soccer, Olympiades, ADN, Annuaire</div>
+          </div>
+        </div>
+        <div class="obj-check-card fade-in">
+          <div class="obj-check-num">06</div>
+          <div class="obj-check-body">
+            <h4>Questions d'importance mondiale</h4>
+            <p>L'immigration, l'intégration et l'entrepreneuriat diasporique sont des enjeux que j'ai vécus et auxquels j'ai contribué activement à travers mes services.</p>
+            <div class="obj-check-proof">ADN, Impact Diaspora, Alliers PANA</div>
+          </div>
+        </div>
+        <div class="obj-check-card fade-in" style="grid-column:1/-1;">
+          <div class="obj-check-num">07</div>
+          <div class="obj-check-body">
+            <h4>Éthique des choix et des actions</h4>
+            <p>Choisir des activités de service non rémunérées, m'engager dans des causes communautaires sans en attendre de retour — ces choix reflètent une éthique construite tout au long du programme.</p>
+            <div class="obj-check-proof">Toutes mes expériences de service</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bilan -->
+      <div class="section-header fade-in" style="margin:72px 0 40px;">
+        <div class="section-tag">// Bilan</div>
+        <h2 class="section-title" style="font-size:2rem;"><span>Ce que j'ai</span> <em>vraiment appris</em></h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="growth-card fade-in">
+        <div class="growth-card-number">✦</div>
+        <span class="activity-tag" style="display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:100px;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px;background:rgba(201,168,76,0.15);color:var(--gold);">🌍 Bilan général</span>
+        <h3>Le CAS — une clé qui a rompu mes verrous</h3>
+        <p>Le programme CAS s'inscrit dans mon parcours comme la clé qui a rompu les verrous qui me bridaient. En tant que nouvel arrivant, j'étais très introverti et il m'était difficile de jouir de tous les dons dont le ciel m'a fait grâce.</p>
+        <div class="highlight-pull">Aujourd'hui, je suis fier d'affirmer que cette partie de ma vie est derrière moi.</div>
+        <p>J'ai participé à des concours d'art oratoire et des foires scientifiques, <strong>j'ai même gagné des bourses en écriture</strong>. J'ai été capable de représenter mon école dans des compétitions — ce qui est synonyme de tous les efforts consentis pendant ces 18 mois pour me forger une personnalité digne des talents qui sommeillaient en moi.</p>
+        <p style="margin-top:12px;">Aujourd'hui, après avoir complété le programme CAS, <strong>je suis fier de qui je suis</strong> et je suis enthousiaste à l'idée d'embrasser le futur.</p>
+      </div>
+
+      <!-- Autoévaluation -->
+      <div class="section-header fade-in" style="margin:72px 0 32px;">
+        <div class="section-tag">// Annexe V — Autoévaluation</div>
+        <h2 class="section-title" style="font-size:2rem;"><span>Bilan</span> <em>personnel</em></h2>
+        <p class="section-desc">Évaluation honnête de mon engagement. (1 = Rarement · 4 = Toujours)</p>
+        <div class="divider"></div>
+      </div>
+
+      <div class="autoeval-grid fade-in">
+        <div class="autoeval-item"><div class="autoeval-label">Je me suis questionné sur mes choix et mes valeurs</div><div class="autoeval-stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></div>
+        <div class="autoeval-item"><div class="autoeval-label">Je me suis proposé de nouveaux défis</div><div class="autoeval-stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></div>
+        <div class="autoeval-item"><div class="autoeval-label">J'ai participé à une variété d'activités CAS</div><div class="autoeval-stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></div>
+        <div class="autoeval-item"><div class="autoeval-label">J'ai participé de façon régulière sur 18 mois</div><div class="autoeval-stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div><div class="star half"></div></div></div>
+        <div class="autoeval-item"><div class="autoeval-label">J'ai bien touché à Créativité</div><div class="autoeval-stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></div>
+        <div class="autoeval-item"><div class="autoeval-label">J'ai bien touché à Activité</div><div class="autoeval-stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></div>
+        <div class="autoeval-item"><div class="autoeval-label">J'ai bien touché à Service</div><div class="autoeval-stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div><div class="star half"></div></div></div>
+        <div class="autoeval-item"><div class="autoeval-label">J'ai fait preuve d'engagement et d'autonomie</div><div class="autoeval-stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></div>
+        <div class="autoeval-item"><div class="autoeval-label">J'ai fait preuve de collaboration</div><div class="autoeval-stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div><div class="star half"></div></div></div>
+        <div class="autoeval-item"><div class="autoeval-label">Je me suis intéressé à des causes mondiales</div><div class="autoeval-stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></div>
+        <div class="autoeval-item"><div class="autoeval-label">J'ai fait preuve d'éthique et d'empathie</div><div class="autoeval-stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></div>
+        <div class="autoeval-item"><div class="autoeval-label">Mon dossier CAS est de qualité</div><div class="autoeval-stars"><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div><div class="star filled"></div></div></div>
+      </div>
+
+      <!-- Clôture -->
+      <div class="closing-section fade-in">
+        <h2>
+          <em style="font-style:italic;color:var(--gold);">Perish</em>
+          <span> ne signifie pas mourir.</span><br>
+          <span>Il signifie </span>
+          <em style="font-style:italic;color:var(--cas-s);">se transformer.</em>
+        </h2>
+        <p>18 mois. 23 activités. Des centaines d'heures investies dans la communauté, dans l'art, dans le sport, dans l'humain.</p>
+        <p>Je quitte ce programme <strong>plus complet, plus ouvert, et surtout plus moi-même</strong> que je ne l'étais à mon arrivée.</p>
+        <div class="signature-block">
+          <div class="signature-name">Perish Guialakong Demanou</div>
+          <div class="signature-role">Élève · Programme du Diplôme IB · CCFO · Juin 2026</div>
+        </div>
+      </div>
+
+    </div><!-- /section -->
+  </div><!-- /page-wrapper -->
+
+  <footer class="footer">
+    <p>Perish Guialakong Demanou · Dossier CAS · Programme du Diplôme IB</p>
+    <p style="margin-top:8px;">Collège Catholique Franco-Ouest · Ottawa, Ontario · 2024–2026</p>
+  </footer>
+
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    function setLang(lang) {
+      i18n.currentLang = lang;
+      localStorage.setItem('cas_lang', lang);
+      i18n.apply();
+      document.getElementById('langFR').classList.toggle('active', lang === 'fr');
+      document.getElementById('langEN').classList.toggle('active', lang === 'en');
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('cas_lang') || 'fr';
+      setLang(saved);
+    });
+  </script>
+</body>
+</html>

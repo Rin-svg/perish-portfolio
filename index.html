@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dossier CAS — Perish Guialakong Demanou</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-logo" data-i18n="nav.logo">Perish G.D. · CAS</div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active"><span class="nav-icon">🏠</span> <span data-i18n="nav.home">Accueil</span></a></li>
+      <li><a href="pages/profil.html"><span class="nav-icon">👤</span> <span data-i18n="nav.profil">Profil</span></a></li>
+      <li><a href="pages/cas.html"><span class="nav-icon">⚡</span> <span data-i18n="nav.cas">Expériences/Preuves CAS</span></a></li>
+      <li><a href="pages/timeline.html"><span class="nav-icon">📅</span> <span data-i18n="nav.timeline">Ligne Temporelle</span></a></li>
+      <li><a href="pages/projet-cas.html"><span class="nav-icon">🏆</span> <span>Projet CAS</span></a></li>
+      <li><a href="pages/reflexion.html"><span class="nav-icon">💭</span> <span data-i18n="nav.reflexion">Réflexion Finale</span></a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="langFR" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" id="langEN" onclick="setLang('en')">EN</button>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-content">
+      <div class="hero-badge" data-i18n="home.badge">Baccalauréat International · Programme du Diplôme · 2024–2026</div>
+      <h1 class="hero-title">
+        <span data-i18n="home.title1">Dossier</span>
+        <em data-i18n="home.title2">CAS</em>
+      </h1>
+      <p class="hero-subtitle" data-i18n="home.subtitle">Un parcours de <strong>18 mois</strong> de créativité, d'action et de service — documenté par <strong>Perish Guialakong Demanou</strong>, élève de 12<sup>e</sup> année au Collège catholique Franco-Ouest.</p>
+      <div class="hero-cas-pills">
+        <a href="pages/cas.html#creativite" class="pill pill-c" data-i18n="home.pill.c">🎨 Créativité</a>
+        <a href="pages/cas.html#activite"   class="pill pill-a" data-i18n="home.pill.a">🏃 Activité</a>
+        <a href="pages/cas.html#service"    class="pill pill-s" data-i18n="home.pill.s">🤝 Service</a>
+      </div>
+      <div class="hero-cta">
+        <a href="pages/profil.html" class="btn btn-primary" data-i18n="home.cta1">Découvrir mon profil →</a>
+        <a href="pages/timeline.html" class="btn btn-outline" data-i18n="home.cta2">Voir la ligne temporelle</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── NAV CARDS ── -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <div class="section-tag" data-i18n="home.nav.tag">// Navigation</div>
+      <h2 class="section-title">
+        <span data-i18n="home.nav.title1">Explorer le</span> <em data-i18n="home.nav.title2">Dossier</em>
+      </h2>
+      <p class="section-desc" data-i18n="home.nav.desc">Chaque rubrique est une page dédiée. Navigue à travers mon parcours CAS.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="nav-cards">
+      <a href="pages/profil.html" class="nav-card nc-profil fade-in">
+        <div class="nc-icon">👤</div>
+        <div class="nc-title" data-i18n="home.nc.profil.title">Profil</div>
+        <p class="nc-desc" data-i18n="home.nc.profil.desc">Qui je suis, mes intérêts, mes talents, mes objectifs personnels et mon engagement envers le programme CAS.</p>
+        <span class="nc-arrow" data-i18n="home.nc.profil.link">Explorer le profil →</span>
+      </a>
+      <a href="pages/cas.html" class="nav-card nc-cas fade-in">
+        <div class="nc-icon">⚡</div>
+        <div class="nc-title" data-i18n="home.nc.cas.title">Expériences/Preuves CAS</div>
+        <p class="nc-desc" data-i18n="home.nc.cas.desc">Toutes mes activités de Créativité, d'Activité physique et de Service communautaire avec preuves et médias.</p>
+        <span class="nc-arrow" data-i18n="home.nc.cas.link">Voir les expériences/preuves →</span>
+      </a>
+      <a href="pages/timeline.html" class="nav-card nc-timeline fade-in">
+        <div class="nc-icon">📅</div>
+        <div class="nc-title" data-i18n="home.nc.tl.title">Ligne Temporelle</div>
+        <p class="nc-desc" data-i18n="home.nc.tl.desc">Visualisation chronologique de mon engagement sur 18 mois, avec dates et évolution de chaque activité.</p>
+        <span class="nc-arrow" data-i18n="home.nc.tl.link">Voir la chronologie →</span>
+      </a>
+      <a href="pages/reflexion.html" class="nav-card nc-reflex fade-in">
+        <div class="nc-icon">💭</div>
+        <div class="nc-title" data-i18n="home.nc.ref.title">Réflexion Finale</div>
+        <p class="nc-desc" data-i18n="home.nc.ref.desc">Bilan personnel, objectifs d'apprentissage atteints, et réflexion profonde sur ce que le CAS m'a apporté.</p>
+        <span class="nc-arrow" data-i18n="home.nc.ref.link">Lire la réflexion →</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── STATS ── -->
+  <div class="section fade-in" style="background:var(--surface);border-radius:24px;margin:0 40px 80px;padding:60px 40px;">
+    <div class="section-header" style="margin-bottom:40px;">
+      <div class="section-tag" data-i18n="home.stats.tag">// En chiffres</div>
+      <h2 class="section-title" style="font-size:2rem;">
+        <span data-i18n="home.stats.title1">Mon programme</span> <em data-i18n="home.stats.title2">CAS en chiffres</em>
+      </h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;text-align:center;">
+      <div class="fade-in">
+        <div style="font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:900;color:var(--cas-c);line-height:1;">7</div>
+        <div style="font-size:0.85rem;color:var(--muted);margin-top:8px;" data-i18n="home.stat.c">Activités de Créativité</div>
+      </div>
+      <div class="fade-in">
+        <div style="font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:900;color:var(--cas-a);line-height:1;">11</div>
+        <div style="font-size:0.85rem;color:var(--muted);margin-top:8px;" data-i18n="home.stat.a">Activités physiques</div>
+      </div>
+      <div class="fade-in">
+        <div style="font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:900;color:var(--cas-s);line-height:1;">5</div>
+        <div style="font-size:0.85rem;color:var(--muted);margin-top:8px;" data-i18n="home.stat.s">Projets de Service</div>
+      </div>
+      <div class="fade-in">
+        <div style="font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:900;color:var(--gold);line-height:1;">18</div>
+        <div style="font-size:0.85rem;color:var(--muted);margin-top:8px;" data-i18n="home.stat.months">Mois d'engagement</div>
+      </div>
+      <div class="fade-in">
+        <div style="font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:900;color:var(--text);line-height:1;">7</div>
+        <div style="font-size:0.85rem;color:var(--muted);margin-top:8px;" data-i18n="home.stat.obj">Objectifs d'apprentissage</div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p data-i18n="footer.line1">Perish Guialakong Demanou · Dossier CAS · Programme du Diplôme IB</p>
+    <p style="margin-top:8px;" data-i18n="footer.line2">Collège Catholique Franco-Ouest · Ottawa, Ontario · 2024–2026</p>
+  </footer>
+
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function setLang(lang) {
+      i18n.currentLang = lang;
+      localStorage.setItem('cas_lang', lang);
+      i18n.apply();
+      document.getElementById('langFR').classList.toggle('active', lang === 'fr');
+      document.getElementById('langEN').classList.toggle('active', lang === 'en');
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('cas_lang') || 'fr';
+      setLang(saved);
+    });
+  </script>
+</body>
+</html>

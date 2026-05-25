@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil — Perish G.D. | Dossier CAS</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-logo" data-i18n="nav.logo">Perish G.D. · CAS</div>
+    <ul class="nav-links">
+      <li><a href="../index.html"><span class="nav-icon">🏠</span> <span data-i18n="nav.home">Accueil</span></a></li>
+      <li><a href="profil.html" class="active"><span class="nav-icon">👤</span> <span data-i18n="nav.profil">Profil</span></a></li>
+      <li><a href="cas.html"><span class="nav-icon">⚡</span> <span data-i18n="nav.cas">Expériences/Preuves CAS</span></a></li>
+      <li><a href="timeline.html"><span class="nav-icon">📅</span> <span data-i18n="nav.timeline">Ligne Temporelle</span></a></li>
+      <li><a href="projet-cas.html"><span class="nav-icon">🏆</span> <span>Projet CAS</span></a></li>
+      <li><a href="reflexion.html"><span class="nav-icon">💭</span> <span data-i18n="nav.reflexion">Réflexion Finale</span></a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="langFR" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" id="langEN" onclick="setLang('en')">EN</button>
+    </div>
+  </nav>
+
+  <div class="page-wrapper">
+    <div class="page-hero">
+      <div class="page-hero-bg" style="background:radial-gradient(ellipse 50% 60% at 50% 0%,rgba(201,168,76,0.12),transparent 70%)"></div>
+      <div class="page-hero-content">
+        <div class="section-tag" data-i18n="profil.tag">// Qui suis-je ?</div>
+        <h1><span data-i18n="profil.title1">Mon</span> <em style="font-style:italic;color:var(--gold);" data-i18n="profil.title2">Profil</em></h1>
+        <p data-i18n="profil.subtitle">Une fenêtre sur mon identité, mes passions, et ce que j'apporte au monde.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="profile-layout">
+        <aside class="profile-sidebar fade-in">
+          <!-- PHOTO DE PROFIL: remplace "../images/photo-profil.jpg" par ta photo -->
+          <div class="profile-avatar-wrap">
+            <div class="profile-avatar" id="profileAvatar">
+              <img src="../images/photo-profil.jpg" alt="Photo de profil"
+                   style="width:100%;height:100%;object-fit:cover;"
+                   onerror="this.outerHTML='<span style=\'font-size:4rem;position:relative;z-index:1;\'>👤</span>'">
+            </div>
+            <div class="profile-badge-ib">IB · 12e</div>
+          </div>
+          <div class="profile-name">Perish Guialakong Demanou</div>
+          <div class="profile-school" data-i18n="profil.school">Collège Catholique Franco-Ouest · Ottawa, ON</div>
+          <div class="profile-stats">
+            <div class="stat-box"><div class="stat-num">18</div><div class="stat-label" data-i18n="profil.stat.months">Mois CAS</div></div>
+            <div class="stat-box"><div class="stat-num" style="color:var(--cas-c);">7</div><div class="stat-label" data-i18n="cas.tab.c">🎨 Créativité</div></div>
+            <div class="stat-box"><div class="stat-num" style="color:var(--cas-a);">11</div><div class="stat-label" data-i18n="cas.tab.a">🏃 Activité</div></div>
+            <div class="stat-box"><div class="stat-num" style="color:var(--cas-s);">5</div><div class="stat-label" data-i18n="cas.tab.s">🤝 Service</div></div>
+          </div>
+          <div style="margin-bottom:12px;font-size:0.8rem;font-weight:600;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;" data-i18n="profil.interests.title">Intérêts personnels</div>
+          <div class="profile-interests">
+            <span class="interest-tag">🎮 Jeux vidéo</span>
+            <span class="interest-tag">🍳 Cuisine</span>
+            <span class="interest-tag">🧘 Méditation</span>
+            <span class="interest-tag">😴 Sommeil</span>
+            <span class="interest-tag">📚 Études</span>
+            <span class="interest-tag">🎨 Art</span>
+            <span class="interest-tag">⚽ Soccer</span>
+            <span class="interest-tag">🎵 Musique</span>
+            <span class="interest-tag">♟️ Échecs</span>
+          </div>
+        </aside>
+
+        <main class="profile-main">
+          <div class="profile-section fade-in">
+            <h2 data-i18n="profil.section.who">Qui je suis</h2>
+            <p data-i18n="profil.bio">Je m'appelle <strong>Perish Guialakong Demanou</strong>Je suis né le 2 juin 2008 au Cameroun, à Yaoundé, ce qui signifie que 2025 marquera mon dernier Noël en tant que mineur. J'ai 4 frères et sœurs, et nous vivons avec nos deux parents depuis maintenant deux ans à Ottawa. Je suis en 12e année BI.</p>
+            <br>
+            <p data-i18n="profil.bio2">Aussi insolite que mon prénom Perish — qui signifie littéralement « mourir » mais qui porte une toute autre signification émotionnelle dans ma famille — j'ai souvent l'habitude d'afficher une attitude différente de celle de mes pairs. Je suis quelqu'un qui observe avant d'agir, qui réfléchit profondément avant de parler, et qui s'engage avec conviction dans tout ce qu'il entreprend</p>
+            <div style="margin-top:28px;">
+              <div style="font-size:0.8rem;color:var(--muted);margin-bottom:12px;font-family:'DM Mono',monospace;" data-i18n="profil.media.label">Quelques phothos</div>
+              <div class="media-grid" data-zone-id="profil-zone-1" id="profileMedia" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
+                <!-- IMAGE 1: remplace "images/image1.jpg" par ton fichier -->
+                <div class="media-item" style="aspect-ratio:1;" data-src="../images/image1.jpg" data-type="image" data-caption="Image 1">
+                  <img src="../images/image1.jpg" alt="Image 1" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+                  <div class="media-overlay"><span class="media-caption">Image 1</span></div>
+                </div>
+                <!-- IMAGE 2: remplace "images/image2.jpg" par ton fichier -->
+                <div class="media-item" style="aspect-ratio:1;" data-src="../images/image2.jpg" data-type="image" data-caption="Image 2">
+                  <img src="../images/image2.jpg" alt="Image 2" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+                  <div class="media-overlay"><span class="media-caption">Image 2</span></div>
+                </div>
+                <div class="media-item" style="aspect-ratio:1;" data-src="../images/image2.jpg" data-type="image" data-caption="Image 2">
+                  <img src="../images/image3.jpg" alt="Image 3" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+                  <div class="media-overlay"><span class="media-caption">Image 2</span></div>
+                </div>
+                <div class="media-item" style="aspect-ratio:1;" data-src="../images/image2.jpg" data-type="image" data-caption="Image 2">
+                  <img src="../images/image4.jpg" alt="Image 4" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+                  <div class="media-overlay"><span class="media-caption">Image 2</span></div>
+                </div>
+                <div class="media-item" style="aspect-ratio:1;" data-src="../images/image2.jpg" data-type="image" data-caption="Image 2">
+                  <img src="../images/image5.jpg" alt="Image 5" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+                  <div class="media-overlay"><span class="media-caption">Image 2</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-section fade-in">
+            <h2 data-i18n="profil.section.vision">Ma vision du CAS</h2>
+            <p data-i18n="profil.vision1">Pour moi, le programme CAS n'est pas seulement une exigence académique — c'est une invitation à me dépasser et à contribuer à quelque chose de plus grand que moi-même. Venu du Cameroun et installé au Canada depuis peu, j'ai une sensibilité particulière aux enjeux de communauté, d'inclusion et d'entraide</p>
+            <br>
+            <p data-i18n="profil.vision2">Mes activités reflètent qui je suis : curieux,persévérant, et profondément attaché à ma communauté. A travers le programme cas j'aimerais adopter une approche extravertie pour m'impliquer d'avantage dans ma communauté et acquérir les compétences realtives à ce programme, soit: faire preuve à l'avenir de créativité, entreprendre des activités et répondre aux besoins environnants par des services.</p>
+          </div>
+
+          <div class="profile-section fade-in">
+            <h2 data-i18n="profil.section.obj">Objectifs d'apprentissage</h2>
+            <p style="margin-bottom:24px;" data-i18n="profil.obj.intro">Le programme CAS vise 7 objectifs que je me suis engagé à atteindre à travers mes expériences :</p>
+            <div class="objectives-grid">
+              <div class="obj-card fade-in"><div class="obj-num">OA 01</div><p data-i18n="profil.obj1">Identifier mes points forts et développer les domaines à améliorer.</p></div>
+              <div class="obj-card fade-in"><div class="obj-num">OA 02</div><p data-i18n="profil.obj2">elever de nouveaux défis et développer de nouvelles compétences.</p></div>
+              <div class="obj-card fade-in"><div class="obj-num">OA 03</div><p data-i18n="profil.obj3">Initier et planifier des expériences CAS de manière autonome.</p></div>
+              <div class="obj-card fade-in"><div class="obj-num">OA 04</div><p data-i18n="profil.obj4">Faire preuve d'engagement et de persévérance sur la durée.</p></div>
+              <div class="obj-card fade-in"><div class="obj-num">OA 05</div><p data-i18n="profil.obj5">Démontrer les bénéfices du travail en collaboration.</p></div>
+              <div class="obj-card fade-in"><div class="obj-num">OA 06</div><p data-i18n="profil.obj6">M'engager dans des questions d'importance mondiale.</p></div>
+              <div class="obj-card fade-in" style="grid-column:1/-1;"><div class="obj-num">OA 07</div><p data-i18n="profil.obj7">Reconnaître et réfléchir à l'éthique de mes choix et actions.</p></div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p data-i18n="footer.line1">Perish Guialakong Demanou · Dossier CAS · Programme du Diplôme IB</p>
+    <p style="margin-top:8px;" data-i18n="footer.line2">Collège Catholique Franco-Ouest · Ottawa, Ontario · 2024–2026</p>
+  </footer>
+
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    function setLang(lang) {
+      i18n.currentLang = lang;
+      localStorage.setItem('cas_lang', lang);
+      i18n.apply();
+      document.getElementById('langFR').classList.toggle('active', lang === 'fr');
+      document.getElementById('langEN').classList.toggle('active', lang === 'en');
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('cas_lang') || 'fr';
+      setLang(saved);
+    });
+  </script>
+</body>
+</html>

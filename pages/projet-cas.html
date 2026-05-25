@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet CAS — Club Culture G | Perish G.D.</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+
+    /* ── PROJECT HERO ── */
+    .project-hero {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 40px 80px;
+      overflow: hidden;
+    }
+
+    .project-hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 50% 0%, rgba(201,168,76,0.15) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 10% 80%, rgba(78,205,196,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 90% 60%, rgba(168,230,207,0.07) 0%, transparent 60%);
+    }
+
+    .project-hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.2;
+      animation: float 9s ease-in-out infinite;
+    }
+
+    .project-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+    }
+
+    /* ── SECTION DIVIDERS ── */
+    .proj-section {
+      padding: 72px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .proj-section-header {
+      margin-bottom: 48px;
+    }
+
+    /* ── CAS STRAND BADGES ── */
+    .strand-badges {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 28px 0 40px;
+    }
+
+    .strand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 100px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      border: 1.5px solid;
+      letter-spacing: 0.03em;
+    }
+
+    .sb-c { border-color: var(--cas-c); color: var(--cas-c); background: rgba(78,205,196,0.08); }
+    .sb-s { border-color: var(--cas-s); color: var(--cas-s); background: rgba(168,230,207,0.08); }
+    .sb-a { border-color: var(--cas-a); color: var(--cas-a); background: rgba(255,107,107,0.08); }
+
+    /* ── PROJECT INFO GRID ── */
+    .project-info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 60px;
+    }
+
+    .pinfo-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .pinfo-card:hover {
+      border-color: rgba(201,168,76,0.35);
+      transform: translateY(-4px);
+    }
+
+    .pinfo-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .pinfo-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .pinfo-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ── OVERVIEW CARD ── */
+    .overview-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 48px;
+      margin-bottom: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .overview-card::before {
+      content: '🧠';
+      position: absolute;
+      font-size: 18rem;
+      opacity: 0.04;
+      right: -40px;
+      bottom: -60px;
+      pointer-events: none;
+    }
+
+    .overview-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .overview-card p {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--muted);
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .overview-card p:last-child { margin-bottom: 0; }
+    .overview-card p strong { color: var(--text); }
+
+    /* ── QUIZ EVIDENCE CARDS ── */
+    .quiz-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+    }
+
+    .quiz-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .quiz-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(201,168,76,0.4);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+
+    .quiz-card-top {
+      padding: 24px 24px 0;
+    }
+
+    .quiz-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .quiz-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .quiz-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    .quiz-themes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .quiz-theme {
+      padding: 3px 10px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    .quiz-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      margin-bottom: 16px;
+    }
+
+    .quiz-media-zone {
+      padding: 16px 24px 24px;
+      border-top: 1px solid var(--border);
+      background: rgba(255,255,255,0.01);
+    }
+
+    .quiz-media-label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      margin-bottom: 10px;
+    }
+
+    /* ── OBJECTIVES TABLE ── */
+    .obj-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+    }
+
+    .obj-table th {
+      text-align: left;
+      padding: 12px 16px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border-bottom: 1px solid var(--border);
+      background: rgba(201,168,76,0.05);
+    }
+
+    .obj-table td {
+      padding: 14px 16px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .obj-table td:first-child {
+      font-family: 'DM Mono', monospace;
+      color: var(--gold);
+      font-weight: 700;
+      white-space: nowrap;
+      width: 80px;
+    }
+
+    .obj-table td:nth-child(2) {
+      color: var(--text);
+      font-weight: 500;
+      width: 200px;
+    }
+
+    .obj-table tr:hover td {
+      background: rgba(201,168,76,0.03);
+    }
+
+    /* ── REFLECTION TIMELINE ── */
+    .ref-timeline {
+      position: relative;
+      padding-left: 40px;
+    }
+
+    .ref-timeline::before {
+      content: '';
+      position: absolute;
+      left: 12px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--gold) 0%, var(--cas-c) 50%, var(--cas-s) 100%);
+      opacity: 0.4;
+      border-radius: 2px;
+    }
+
+    .ref-entry {
+      position: relative;
+      margin-bottom: 48px;
+    }
+
+    .ref-entry:last-child { margin-bottom: 0; }
+
+    .ref-dot {
+      position: absolute;
+      left: -34px;
+      top: 6px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid var(--deep);
+      z-index: 1;
+      flex-shrink: 0;
+    }
+
+    .ref-dot-gold  { background: var(--gold);   box-shadow: 0 0 0 3px rgba(201,168,76,0.25); }
+    .ref-dot-teal  { background: var(--cas-c);  box-shadow: 0 0 0 3px rgba(78,205,196,0.25); }
+    .ref-dot-coral { background: var(--cas-a);  box-shadow: 0 0 0 3px rgba(255,107,107,0.25); }
+    .ref-dot-mint  { background: var(--cas-s);  box-shadow: 0 0 0 3px rgba(168,230,207,0.25); }
+
+    .ref-entry-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .ref-phase {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    .rp-depart  { background: rgba(201,168,76,0.15);  color: var(--gold); }
+    .rp-evol    { background: rgba(78,205,196,0.15);  color: var(--cas-c); }
+    .rp-defi    { background: rgba(255,107,107,0.15); color: var(--cas-a); }
+    .rp-final   { background: rgba(168,230,207,0.15); color: var(--cas-s); }
+
+    .ref-date {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+    }
+
+    .ref-entry h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .ref-entry p {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .ref-entry p:last-child { margin-bottom: 0; }
+    .ref-entry p strong { color: var(--text); }
+
+    .ref-pull {
+      border-left: 3px solid var(--gold);
+      padding: 14px 20px;
+      margin: 18px 0;
+      background: rgba(201,168,76,0.04);
+      border-radius: 0 10px 10px 0;
+      font-style: italic;
+      color: var(--cream) !important;
+      font-size: 0.97rem !important;
+    }
+
+    .ref-obj-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .ref-obj-tag {
+      padding: 4px 12px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 100px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--gold);
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* ── CAS STAGES VISUAL ── */
+    .stages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .stage-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 20px;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .stage-card:hover {
+      border-color: rgba(201,168,76,0.4);
+      transform: translateY(-4px);
+    }
+
+    .stage-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+
+    .stage-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      opacity: 0.15;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stage-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--gold);
+    }
+
+    .stage-card p {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── SEPARATOR ── */
+    .section-sep {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0 0 60px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .project-hero { padding: 100px 20px 60px; min-height: 50vh; }
+      .proj-section { padding: 48px 20px; }
+      .overview-card { padding: 28px; }
+      .quiz-grid { grid-template-columns: 1fr; }
+      .obj-table td:nth-child(2) { width: auto; }
+      .ref-timeline { padding-left: 28px; }
+      .ref-dot { left: -22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <nav class="nav">
+    <div class="nav-logo" data-i18n="nav.logo">Perish G.D. · CAS</div>
+    <ul class="nav-links">
+      <li><a href="../index.html"><span class="nav-icon">🏠</span> <span data-i18n="nav.home">Accueil</span></a></li>
+      <li><a href="profil.html"><span class="nav-icon">👤</span> <span data-i18n="nav.profil">Profil</span></a></li>
+      <li><a href="cas.html"><span class="nav-icon">⚡</span> <span data-i18n="nav.cas">Expériences/Preuves CAS</span></a></li>
+      <li><a href="timeline.html"><span class="nav-icon">📅</span> <span data-i18n="nav.timeline">Ligne Temporelle</span></a></li>
+      <li><a href="reflexion.html"><span class="nav-icon">💭</span> <span data-i18n="nav.reflexion">Réflexion Finale</span></a></li>
+      <li><a href="projet-cas.html" class="active"><span class="nav-icon">🏆</span> Projet CAS</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="langFR" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" id="langEN" onclick="setLang('en')">EN</button>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- HERO                                              -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <section class="project-hero">
+    <div class="project-hero-bg"></div>
+    <div class="project-hero-orb" style="width:500px;height:500px;background:radial-gradient(circle,var(--gold),transparent 70%);top:-150px;left:50%;transform:translateX(-50%);"></div>
+    <div class="project-hero-orb" style="width:300px;height:300px;background:radial-gradient(circle,var(--cas-c),transparent 70%);bottom:0;right:-80px;animation-delay:-4s;"></div>
+
+    <div class="project-hero-content">
+      <div class="hero-badge" style="animation:fadeUp 0.8s ease both;">
+        🏆 Projet CAS · 2024–2026 · Collège Catholique Franco-Ouest
+      </div>
+
+      <h1 class="hero-title" style="animation:fadeUp 0.8s 0.15s ease both;">
+        Club de
+        <em>Culture G</em>
+      </h1>
+
+      <p class="hero-subtitle" style="animation:fadeUp 0.8s 0.3s ease both;">
+        Un projet collaboratif de <strong>Créativité, Activité et Service</strong> visant à stimuler la curiosité intellectuelle et l'engagement civique à travers des quiz sur la culture générale.
+      </p>
+
+      <div class="strand-badges" style="animation:fadeUp 0.8s 0.45s ease both;">
+        <div class="strand-badge sb-c">🎨 Créativité</div>
+        <div class="strand-badge sb-a">🏃 Activité</div>
+        <div class="strand-badge sb-s">🤝 Service</div>
+      </div>
+
+      <!-- Quick jump anchors -->
+      <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;animation:fadeUp 0.8s 0.6s ease both;">
+        <a href="#apercu" class="btn btn-primary">Voir l'aperçu →</a>
+        <a href="#reflexions" class="btn btn-outline">Réflexions</a>
+        <a href="#preuves" class="btn btn-outline">Preuves &amp; Quiz</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- PROJECT INFO STRIP                                -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="proj-section" id="apercu">
+    <div class="project-info-grid fade-in">
+      <div class="pinfo-card">
+        <div class="pinfo-icon">📅</div>
+        <div class="pinfo-value">18</div>
+        <div class="pinfo-label">Mois de projet</div>
+      </div>
+      <div class="pinfo-card">
+        <div class="pinfo-icon">🧠</div>
+        <div class="pinfo-value">8+</div>
+        <div class="pinfo-label">Sessions de Quiz</div>
+      </div>
+      <div class="pinfo-card">
+        <div class="pinfo-icon">👥</div>
+        <div class="pinfo-value">15+</div>
+        <div class="pinfo-label">Participants</div>
+      </div>
+      <div class="pinfo-card">
+        <div class="pinfo-icon">🎯</div>
+        <div class="pinfo-value">5</div>
+        <div class="pinfo-label">Thèmes couverts</div>
+      </div>
+      <div class="pinfo-card">
+        <div class="pinfo-icon">📋</div>
+        <div class="pinfo-value">7/7</div>
+        <div class="pinfo-label">Objectifs CAS atteints</div>
+      </div>
+    </div>
+
+    <!-- ── OVERVIEW ── -->
+    <div class="overview-card fade-in">
+      <h2>🌍 Aperçu du projet</h2>
+      <p>
+        Le <strong>Club de Culture G</strong> (Culture Générale) est mon projet CAS principal.
+        Partant du constat que beaucoup de mes camarades, comme moi, avaient une curiosité intellectuelle
+        naturelle mais manquaient d'un espace structuré pour l'exercer, j'ai décidé de
+        <strong>créer et coordonner un club de quiz hebdomadaire</strong> ouvert à tous les élèves du Collège catholique Franco-Ouest.
+      </p>
+      <p>
+        Chaque session explore un univers différent : <strong>l'actualité politique internationale</strong>,
+        la <strong>géographie mondiale</strong>, l'<strong>histoire</strong> du Canada et du monde,
+        les <strong>sciences</strong> et les <strong>arts et culture populaire</strong>.
+        Les quiz sont entièrement conçus par moi — questions rédigées, thèmes choisis, animation assurée.
+      </p>
+      <p>
+        Ce projet touche aux trois composantes CAS : <strong>Créativité</strong> (conception des quiz et animation),
+        <strong>Activité</strong> (organisation, coordination, gestion d'équipe) et
+        <strong>Service</strong> (enrichissement de la communauté scolaire, promotion de la culture citoyenne).
+        Il a également une dimension internationale forte, en abordant des enjeux mondiaux à travers chaque session.
+      </p>
+    </div>
+
+    <!-- ── CAS 5 STAGES ── -->
+    <div class="section-header fade-in" style="margin-bottom:32px;">
+      <div class="section-tag">// Les 5 étapes du programme CAS</div>
+      <h2 class="section-title" style="font-size:2rem;">Structure <em>du projet</em></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="stages-grid fade-in">
+      <div class="stage-card">
+        <div class="stage-num">01</div>
+        <div class="stage-name">Recherche</div>
+        <p>Identification du besoin : peu d'espaces de culture générale accessibles aux élèves. Enquête informelle auprès de mes camarades pour valider l'intérêt.</p>
+      </div>
+      <div class="stage-card">
+        <div class="stage-num">02</div>
+        <div class="stage-name">Préparation</div>
+        <p>Définition du format (quiz en équipes, 5 thèmes rotatifs), création d'un modèle de questions, identification du lieu et des responsabilités de chacun.</p>
+      </div>
+      <div class="stage-card">
+        <div class="stage-num">03</div>
+        <div class="stage-name">Action</div>
+        <p>Lancement du club, animation des sessions, adaptation du format en cours de route, recrutement de nouveaux membres, intégration de médias visuels.</p>
+      </div>
+      <div class="stage-card">
+        <div class="stage-num">04</div>
+        <div class="stage-name">Réflexion</div>
+        <p>Après chaque session : qu'est-ce qui a fonctionné ? Qu'est-ce qui a bloqué ? Comment améliorer l'expérience pour les participants ? (Voir section réflexions)</p>
+      </div>
+      <div class="stage-card">
+        <div class="stage-num">05</div>
+        <div class="stage-name">Présentation</div>
+        <p>Documentation complète dans ce dossier CAS : quiz, photos, vidéos, réflexions et bilan final du projet sur 18 mois.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-sep"></div>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- QUIZ EVIDENCE                                     -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="proj-section" id="preuves">
+    <div class="proj-section-header section-header fade-in">
+      <div class="section-tag">// Preuves documentaires</div>
+      <h2 class="section-title" style="font-size:2rem;">Quiz &amp; <em>Sessions</em></h2>
+      <p class="section-desc">Chaque quiz est une preuve concrète du projet. Clique sur « Ajouter » pour y déposer tes fichiers de questions, photos et vidéos.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="quiz-grid">
+
+      <!-- QUIZ 1 -->
+      <div class="quiz-card fade-in">
+        <div class="quiz-card-top">
+          <div class="quiz-num">Quiz #01</div>
+          <h3>Actualité politique internationale</h3>
+          <p>Première session du club. Questions sur les grandes élections mondiales, les chefs d'État en exercice, les crises diplomatiques et les organisations internationales (ONU, OTAN, UA…).</p>
+          <div class="quiz-themes">
+            <span class="quiz-theme">🗳️ Politique</span>
+            <span class="quiz-theme">🌐 International</span>
+            <span class="quiz-theme">📰 Actualité</span>
+          </div>
+          <div class="quiz-meta">
+            <span>📅 Septembre 2024</span>
+            <span>👥 8 participants</span>
+          </div>
+        </div>
+        <div class="quiz-media-zone">
+          <div class="quiz-media-label">Photos du quiz</div>
+          <div class="media-grid" data-zone-id="projet-zone-1" style="grid-template-columns:repeat(3,1fr);gap:8px;">
+                <div class="media-item" style="aspect-ratio:1;" data-src="../images/politique.png" data-type="image" data-caption="politique">
+                  <img src="../images/politique.png" alt="politique" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+                  <div class="media-overlay"><span class="media-caption">politique</span></div>
+                </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUIZ 2 -->
+      <div class="quiz-card fade-in">
+        <div class="quiz-card-top">
+          <div class="quiz-num">Quiz #02</div>
+          <h3>Géographie mondiale</h3>
+          <p>Capitales, fleuves, montagnes, pays enclavés, densités de population… Un tour du monde en 20 questions qui a révélé à beaucoup que la géographie est plus passionnante qu'en classe.</p>
+          <div class="quiz-themes">
+            <span class="quiz-theme">🗺️ Géographie</span>
+            <span class="quiz-theme">🌍 Monde</span>
+            <span class="quiz-theme">📊 Statistiques</span>
+          </div>
+          <div class="quiz-meta">
+            <span>📅 Novembre 2024</span>
+            <span>👥 10 participants</span>
+          </div>
+        </div>
+        <div class="quiz-media-zone">
+          <div class="quiz-media-label">Photos du quiz</div>
+          <div class="media-grid" data-zone-id="projet-zone-2" style="grid-template-columns:repeat(3,1fr);gap:8px;">
+            <!-- IMAGE 3: remplace "images/image3.jpg" par ton fichier -->
+                <div class="media-item" style="aspect-ratio:1;" data-src="../images/géographie.png" data-type="image" data-caption="géographie">
+                  <img src="../images/géographie.png" alt="géographie" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+                  <div class="media-overlay"><span class="media-caption">géographie</span></div>
+                </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUIZ 3 -->
+      <div class="quiz-card fade-in">
+        <div class="quiz-card-top">
+          <div class="quiz-num">Quiz #03</div>
+          <h3>Histoire du Canada &amp; du monde</h3>
+          <p>De la Confédération canadienne aux grandes guerres, en passant par les décolonisations africaines et les révolutions. Une session qui a touché à mon histoire personnelle avec émotion.</p>
+          <div class="quiz-themes">
+            <span class="quiz-theme">📚 Histoire</span>
+            <span class="quiz-theme">🇨🇦 Canada</span>
+            <span class="quiz-theme">🌍 Afrique</span>
+          </div>
+          <div class="quiz-meta">
+            <span>📅 Janvier 2025</span>
+            <span>👥 12 participants</span>
+          </div>
+        </div>
+        <div class="quiz-media-zone">
+          <div class="quiz-media-label">Photos du quiz</div>
+          <div class="media-grid" data-zone-id="projet-zone-3" style="grid-template-columns:repeat(3,1fr);gap:8px;">
+            <!-- IMAGE 5: remplace "images/image5.jpg" par ton fichier -->
+                <div class="media-item" style="aspect-ratio:1;" data-src="../images/histoire.png" data-type="image" data-caption="histoire">
+                  <img src="../images/histoire.png" alt="histoire" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+                  <div class="media-overlay"><span class="media-caption">histoire</span></div>
+                </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUIZ 4 -->
+      <div class="quiz-card fade-in">
+        <div class="quiz-card-top">
+          <div class="quiz-num">Quiz #04</div>
+          <h3>Sciences &amp; technologies</h3>
+          <p>Biologie, physique, astronomie, innovations technologiques et découvertes récentes. Un quiz qui a brisé l'idée que la science est réservée à une élite — tout le monde peut être curieux.</p>
+          <div class="quiz-themes">
+            <span class="quiz-theme">🔬 Sciences</span>
+            <span class="quiz-theme">🚀 Technologies</span>
+            <span class="quiz-theme">🌌 Astronomie</span>
+          </div>
+          <div class="quiz-meta">
+            <span>📅 Mars 2025</span>
+            <span>👥 14 participants</span>
+          </div>
+        </div>
+        <div class="quiz-media-zone">
+          <div class="quiz-media-label">Photos du quiz</div>
+          <div class="media-grid" data-zone-id="projet-zone-4" style="grid-template-columns:repeat(3,1fr);gap:8px;">
+            <!-- IMAGE 7: remplace "images/image7.jpg" par ton fichier -->
+                <div class="media-item" style="aspect-ratio:1;" data-src="../images/science3.png" data-type="image" data-caption="science3">
+                  <img src="../images/science3.png" alt="science3" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+                  <div class="media-overlay"><span class="media-caption">science3</span></div>
+                </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUIZ 5 -->
+      <div class="quiz-card fade-in">
+        <div class="quiz-card-top">
+          <div class="quiz-num">Quiz #05</div>
+          <h3>Arts, culture populaire &amp; cinéma</h3>
+          <p>Musique, cinéma, littérature, mouvements artistiques et culture populaire mondiale. La session la plus animée — chacun s'est découvert passionné de quelque chose qu'il ne savait pas nommer.</p>
+          <div class="quiz-themes">
+            <span class="quiz-theme">🎭 Arts</span>
+            <span class="quiz-theme">🎬 Cinéma</span>
+            <span class="quiz-theme">🎵 Musique</span>
+          </div>
+          <div class="quiz-meta">
+            <span>📅 Mai 2025</span>
+            <span>👥 16 participants</span>
+          </div>
+        </div>
+        <div class="quiz-media-zone">
+          <div class="quiz-media-label">Photos du quiz</div>
+          <div class="media-grid" data-zone-id="projet-zone-5" style="grid-template-columns:repeat(3,1fr);gap:8px;">
+            <!-- IMAGE 9: remplace "images/image9.jpg" par ton fichier -->
+                <div class="media-item" style="aspect-ratio:1;" data-src="../images/art.png" data-type="image" data-caption="art">
+                  <img src="../images/art.png" alt="art" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+                  <div class="media-overlay"><span class="media-caption">art</span></div>
+                </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUIZ 6 -->
+      <div class="quiz-card fade-in">
+        <div class="quiz-card-top">
+          <div class="quiz-num">Quiz #06</div>
+          <h3>Environnement &amp; enjeux climatiques</h3>
+          <p>Changements climatiques, COP, biodiversité, énergies renouvelables et impacts régionaux. Un quiz qui a provoqué des débats passionnés après la session sur nos responsabilités individuelles et collectives.</p>
+          <div class="quiz-themes">
+            <span class="quiz-theme">🌱 Environnement</span>
+            <span class="quiz-theme">🌡️ Climat</span>
+            <span class="quiz-theme">♻️ Durabilité</span>
+          </div>
+          <div class="quiz-meta">
+            <span>📅 Octobre 2025</span>
+            <span>👥 15 participants</span>
+          </div>
+        </div>
+        <div class="quiz-media-zone">
+          <div class="quiz-media-label">Photos du quiz</div>
+          <div class="media-grid" data-zone-id="projet-zone-6" style="grid-template-columns:repeat(3,1fr);gap:8px;">
+            <!-- IMAGE 11: remplace "images/image11.jpg" par ton fichier -->
+                <div class="media-item" style="aspect-ratio:1;" data-src="../images/environnement.png" data-type="image" data-caption="environnement">
+                  <img src="../images/environnement.png" alt="environnement" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+                  <div class="media-overlay"><span class="media-caption">environnement</span></div>
+                </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUIZ 7 -->
+      <div class="quiz-card fade-in">
+        <div class="quiz-card-top">
+          <div class="quiz-num">Quiz #07</div>
+          <h3>Droits humains &amp; justice sociale</h3>
+          <p>Histoire des droits civiques, mouvements sociaux, déclarations universelles et figures emblématiques de la lutte pour la dignité humaine. Un quiz particulièrement chargé d'émotion et de sens.</p>
+          <div class="quiz-themes">
+            <span class="quiz-theme">✊ Droits humains</span>
+            <span class="quiz-theme">⚖️ Justice</span>
+            <span class="quiz-theme">🕊️ Paix</span>
+          </div>
+          <div class="quiz-meta">
+            <span>📅 Janvier 2026</span>
+            <span>👥 13 participants</span>
+          </div>
+        </div>
+        <div class="quiz-media-zone">
+          <div class="quiz-media-label">Photos du quiz</div>
+          <div class="media-grid" data-zone-id="projet-zone-7" style="grid-template-columns:repeat(3,1fr);gap:8px;">
+            <!-- IMAGE 13: remplace "images/image13.jpg" par ton fichier -->
+                <div class="media-item" style="aspect-ratio:1;" data-src="../images/droit.png" data-type="image" data-caption="droit">
+                  <img src="../images/droit.png" alt="droit" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+                  <div class="media-overlay"><span class="media-caption">droit</span></div>
+                </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUIZ 8 -->
+      <div class="quiz-card fade-in" style="border-color:rgba(201,168,76,0.3);">
+        <div class="quiz-card-top">
+          <div class="quiz-num" style="color:var(--cas-s);">Quiz #08 — Final</div>
+          <h3>Grand Quiz de Clôture : Toutes thématiques</h3>
+          <p>Session finale du projet — un méga-quiz récapitulatif couvrant tous les thèmes précédents. Remise de prix symboliques aux équipes gagnantes. Moment de célébration et de bilan collectif.</p>
+          <div class="quiz-themes">
+            <span class="quiz-theme" style="border-color:rgba(168,230,207,0.4);color:var(--cas-s);background:rgba(168,230,207,0.1);">🏆 Toutes thématiques</span>
+            <span class="quiz-theme" style="border-color:rgba(168,230,207,0.4);color:var(--cas-s);background:rgba(168,230,207,0.1);">🎓 Session finale</span>
+          </div>
+          <div class="quiz-meta">
+            <span>📅 Mars 2026</span>
+            <span>👥 18 participants</span>
+          </div>
+        </div>
+        <div class="quiz-media-zone" style="background:rgba(168,230,207,0.03);border-top-color:rgba(168,230,207,0.15);">
+          <div class="quiz-media-label">Photos du quiz</div>
+          <div class="media-grid" data-zone-id="projet-zone-8" style="grid-template-columns:repeat(4,1fr);gap:8px;">
+            <!-- IMAGE 15: remplace "images/image15.jpg" par ton fichier -->
+                <div class="media-item" style="aspect-ratio:1;" data-src="../images/franco.png" data-type="image" data-caption="franco">
+                  <img src="../images/franco.png" alt="franco" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+                  <div class="media-overlay"><span class="media-caption">franco</span></div>
+                </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /quiz-grid -->
+
+    <!-- ── MEDIA GALLERY ── -->
+<div class="proj-section-header section-header fade-in" style="margin-top:72px;margin-bottom:32px;">
+  <div class="section-tag">// Galerie documentaire</div>
+  <h2 class="section-title" style="font-size:2rem;">Photos &amp; <em>Vidéos</em></h2>
+  <p class="section-desc">Toutes les preuves visuelles du projet — photos de sessions, vidéos d'ambiance, moments forts.</p>
+  <div class="divider"></div>
+</div>
+
+<div class="media-grid fade-in" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;">
+
+  <div class="media-item" style="aspect-ratio:4/3;" data-src="../images/quiz.jpeg" data-type="image" data-caption="quiz">
+    <img src="../images/quiz.jpeg" alt="quiz" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+    <div class="media-overlay"><span class="media-caption">quiz</span></div>
+  </div>
+
+  <div class="media-item" style="aspect-ratio:4/3;" data-src="../images/quiz1.jpeg" data-type="image" data-caption="quiz1">
+    <img src="../images/quiz1.jpeg" alt="quiz1" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+    <div class="media-overlay"><span class="media-caption">quiz1</span></div>
+  </div>
+
+  <div class="media-item" style="aspect-ratio:4/3;" data-src="../images/quiz2.jpeg" data-type="image" data-caption="quiz2">
+    <img src="../images/quiz2.jpeg" alt="quiz2" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+    <div class="media-overlay"><span class="media-caption">quiz2</span></div>
+  </div>
+
+  <div class="media-item" style="aspect-ratio:4/3;" data-src="../images/quiz3.jpeg" data-type="image" data-caption="quiz3">
+    <img src="../images/quiz3.jpeg" alt="quiz3" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+    <div class="media-overlay"><span class="media-caption">quiz3</span></div>
+  </div>
+
+  <div class="media-item" style="aspect-ratio:4/3;" data-src="../images/quiz4.jpeg" data-type="image" data-caption="quiz4">
+    <img src="../images/quiz4.jpeg" alt="quiz4" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+    <div class="media-overlay"><span class="media-caption">quiz4</span></div>
+  </div>
+
+  <div class="media-item" style="aspect-ratio:4/3;" data-src="../images/quiz5.jpeg" data-type="image" data-caption="quiz5">
+    <img src="../images/quiz5.jpeg" alt="quiz5" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+    <div class="media-overlay"><span class="media-caption">quiz5</span></div>
+  </div>
+
+  <div class="media-item" style="aspect-ratio:4/3;" data-src="../images/quiz6.jpeg" data-type="image" data-caption="quiz6">
+    <img src="../images/quiz6.jpeg" alt="quiz6" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+    <div class="media-overlay"><span class="media-caption">quiz6</span></div>
+  </div>
+
+  <div class="media-item" style="aspect-ratio:4/3;" data-src="../images/quiz7.jpeg" data-type="image" data-caption="quiz7">
+    <img src="../images/quiz7.jpeg" alt="quiz7" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+    <div class="media-overlay"><span class="media-caption">quiz7</span></div>
+  </div>
+
+  <div class="media-item" style="aspect-ratio:4/3;" data-src="../images/quiz8.jpeg" data-type="image" data-caption="quiz8">
+    <img src="../images/quiz8.jpeg" alt="quiz8" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+    <div class="media-overlay"><span class="media-caption">quiz8</span></div>
+  </div>
+
+  <div class="media-item" style="aspect-ratio:4/3;" data-src="../images/quiz9.jpeg" data-type="image" data-caption="quiz9">
+    <img src="../images/quiz9.jpeg" alt="quiz9" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+    <div class="media-overlay"><span class="media-caption">quiz9</span></div>
+  </div>
+
+  <div class="media-item" style="aspect-ratio:4/3;" data-src="../vidéos/quiz.mp4" data-type="video" data-caption="quiz">
+    <video src="../vidéos/quiz.mp4" muted style="width:100%;height:100%;object-fit:cover;border-radius:8px;"></video>
+    <div class="media-overlay"><span class="media-caption">quiz</span></div>
+  </div>
+
+  <div class="media-item" style="aspect-ratio:4/3;" data-src="../vidéos/quiz1.mp4" data-type="video" data-caption="quiz1">
+    <video src="../vidéos/quiz1.mp4" muted style="width:100%;height:100%;object-fit:cover;border-radius:8px;"></video>
+    <div class="media-overlay"><span class="media-caption">quiz1</span></div>
+  </div>
+
+  <div class="media-item" style="aspect-ratio:4/3;" data-src="../vidéos/quiz2.mp4" data-type="video" data-caption="quiz2">
+    <video src="../vidéos/quiz2.mp4" muted style="width:100%;height:100%;object-fit:cover;border-radius:8px;"></video>
+    <div class="media-overlay"><span class="media-caption">quiz2</span></div>
+  </div>
+
+  <div class="media-item" style="aspect-ratio:4/3;" data-src="../vidéos/quiz3.mp4" data-type="video" data-caption="quiz3">
+    <video src="../vidéos/quiz3.mp4" muted style="width:100%;height:100%;object-fit:cover;border-radius:8px;"></video>
+    <div class="media-overlay"><span class="media-caption">quiz3</span></div>
+  </div>
+
+  <div class="media-item" style="aspect-ratio:4/3;" data-src="../vidéos/quiz4.mp4" data-type="video" data-caption="quiz4">
+    <video src="../vidéos/quiz4.mp4" muted style="width:100%;height:100%;object-fit:cover;border-radius:8px;"></video>
+    <div class="media-overlay"><span class="media-caption">quiz4</span></div>
+  </div>
+
+  <div class="media-item" style="aspect-ratio:4/3;position:relative;cursor:pointer;" onclick="window.open('../docs/Projet-CAS.pdf','_blank')">
+    <iframe src="../docs/Projet-CAS.pdf" style="width:100%;height:100%;border:none;border-radius:8px;pointer-events:none;"></iframe>
+    <div class="media-overlay"><span class="media-caption">Projet-CAS</span></div>
+  </div>
+
+  <div class="media-item" style="aspect-ratio:4/3;position:relative;cursor:pointer;" onclick="window.open('../docs/Quiz-2-Culture-G.pdf','_blank')">
+    <iframe src="../docs/Quiz-2-Culture-G.pdf" style="width:100%;height:100%;border:none;border-radius:8px;pointer-events:none;"></iframe>
+    <div class="media-overlay"><span class="media-caption">Quiz-2-Culture-G</span></div>
+  </div>
+
+  <div class="media-item" style="aspect-ratio:4/3;position:relative;cursor:pointer;" onclick="window.open('../docs/Quiz-3-Culture-G.pdf','_blank')">
+    <iframe src="../docs/Quiz-3-Culture-G.pdf" style="width:100%;height:100%;border:none;border-radius:8px;pointer-events:none;"></iframe>
+    <div class="media-overlay"><span class="media-caption">Quiz-3-Culture-G</span></div>
+  </div>
+
+  <div class="media-item" style="aspect-ratio:4/3;position:relative;cursor:pointer;" onclick="window.open('../docs/Quiz-Concours.pdf','_blank')">
+    <iframe src="../docs/Quiz-Concours.pdf" style="width:100%;height:100%;border:none;border-radius:8px;pointer-events:none;"></iframe>
+    <div class="media-overlay"><span class="media-caption">Quiz-Concours</span></div>
+  </div>
+
+  <div class="media-item" style="aspect-ratio:4/3;position:relative;cursor:pointer;" onclick="window.open('../docs/Quizz-4-culture-G.pdf','_blank')">
+    <iframe src="../docs/Quizz-4-culture-G.pdf" style="width:100%;height:100%;border:none;border-radius:8px;pointer-events:none;"></iframe>
+    <div class="media-overlay"><span class="media-caption">Quizz-4-culture-G</span></div>
+  </div>
+
+</div>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- LEARNING OBJECTIVES                               -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="proj-section">
+    <div class="section-header fade-in" style="margin-bottom:32px;">
+      <div class="section-tag">// Objectifs d'apprentissage CAS</div>
+      <h2 class="section-title" style="font-size:2rem;">Comment ce projet <em>répond aux 7 OA</em></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="card fade-in" style="overflow:hidden;">
+      <table class="obj-table">
+        <thead>
+          <tr>
+            <th>OA</th>
+            <th>Objectif</th>
+            <th>Comment le projet y répond</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>OA 01</td>
+            <td>Points forts &amp; domaines à améliorer</td>
+            <td>J'ai découvert mes forces en animation et communication, mais aussi mes lacunes en gestion du temps lors de la préparation des quiz.</td>
+          </tr>
+          <tr>
+            <td>OA 02</td>
+            <td>Nouveaux défis</td>
+            <td>Créer et animer un club de zéro, recruter des participants, rédiger des questions pédagogiques — tout cela était entièrement nouveau pour moi.</td>
+          </tr>
+          <tr>
+            <td>OA 03</td>
+            <td>Initier et planifier</td>
+            <td>J'ai initié le projet seul, planifié chaque session (thèmes, questions, format, lieu, horaire), et adapté le plan en temps réel selon les retours.</td>
+          </tr>
+          <tr>
+            <td>OA 04</td>
+            <td>Engagement et persévérance</td>
+            <td>Maintenir le club actif pendant 18 mois, même lors des périodes d'examens intenses du BI, a exigé une discipline et une persévérance réelles.</td>
+          </tr>
+          <tr>
+            <td>OA 05</td>
+            <td>Travail en collaboration</td>
+            <td>Gestion des équipes de participants, coordination avec des co-animateurs ponctuels, et adaptation au dynamisme de groupe à chaque session.</td>
+          </tr>
+          <tr>
+            <td>OA 06</td>
+            <td>Questions d'importance mondiale</td>
+            <td>Chaque quiz aborde un enjeu global : géopolitique, climat, droits humains, diversité culturelle — en lien direct avec la réalité du monde d'aujourd'hui.</td>
+          </tr>
+          <tr>
+            <td>OA 07</td>
+            <td>Éthique des choix</td>
+            <td>Veiller à l'équité des questions, éviter les biais culturels, respecter la sensibilité de chaque thème abordé (droits humains, politique…).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section-sep"></div>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- REFLECTIONS TIMELINE                              -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="proj-section" id="reflexions">
+    <div class="section-header fade-in" style="margin-bottom:52px;">
+      <div class="section-tag">// Réflexions du projet</div>
+      <h2 class="section-title" style="font-size:2rem;">Évolution · Défis · <em>Finalité</em></h2>
+      <p class="section-desc">Quatre grandes réflexions qui racontent l'histoire du projet — de l'idée initiale à son aboutissement.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="ref-timeline">
+
+      <!-- RÉFLEXION 1 : DÉPART -->
+      <div class="ref-entry fade-in">
+        <div class="ref-dot ref-dot-gold"></div>
+        <div class="ref-entry-header">
+          <span class="ref-phase rp-depart">Phase 1 · Lancement</span>
+          <span class="ref-date">Septembre 2024</span>
+        </div>
+        <h3>Pourquoi un Club de Culture G ?</h3>
+        <p>
+          L'idée est née d'une conversation anodine dans le couloir. Un ami me dit qu'il ne saurait pas nommer
+          la capitale de l'Australie. Je lui répondis en riant que moi non plus, trois ans plus tôt,
+          je ne savais pas que le Canada avait deux langues officielles. Nous étions tous les deux curieux
+          mais n'avions aucun espace pour exercer cette curiosité en dehors des cours.
+        </p>
+        <p>
+          J'ai donc décidé de <strong>créer cet espace</strong>. Pas un cours supplémentaire.
+          Pas une compétition élitiste. Un espace ludique, accessible, où apprendre devenait
+          un jeu collectif. J'ai choisi le format quiz parce qu'il crée naturellement de l'émulation
+          positive, de la surprise, et du lien social.
+        </p>
+        <div class="ref-pull">
+          Un club de culture générale, c'est l'antithèse de la salle de classe : ici, on a le droit
+          de ne pas savoir — et c'est exactement cela qui nous pousse à apprendre.
+        </div>
+        <p>
+          La première session réunissait 8 personnes. Je n'avais ni matériel, ni budget, ni expérience
+          d'animation. Juste un tableau blanc, une liste de questions rédigées la veille,
+          et une conviction : <strong>si c'est intéressant, les gens reviendront</strong>.
+          Ils sont revenus.
+        </p>
+        <div class="ref-obj-list">
+          <span class="ref-obj-tag">OA 01 — Points forts identifiés</span>
+          <span class="ref-obj-tag">OA 03 — Initiation du projet</span>
+        </div>
+      </div>
+
+      <!-- RÉFLEXION 2 : ÉVOLUTION -->
+      <div class="ref-entry fade-in">
+        <div class="ref-dot ref-dot-teal"></div>
+        <div class="ref-entry-header">
+          <span class="ref-phase rp-evol">Phase 2 · Évolution</span>
+          <span class="ref-date">Janvier – Juin 2025</span>
+        </div>
+        <h3>Comment le projet a changé en cours de route</h3>
+        <p>
+          Les premières sessions étaient simples : je posais des questions, les gens répondaient,
+          on comptait les points. Mais très vite, j'ai réalisé que <strong>le format manquait de profondeur</strong>.
+          Les participants répondaient juste ou faux, et passaient à la suite. Il n'y avait pas de réflexion,
+          pas de discussion, pas d'apprentissage véritable.
+        </p>
+        <p>
+          J'ai alors transformé le format : chaque bonne réponse était suivie d'une
+          <strong>mini-explication de 30 secondes</strong> sur le contexte. Pourquoi ce pays est-il enclavé ?
+          Qu'est-ce que cette décision politique a changé concrètement ? Cette évolution a tout changé.
+          Les sessions sont passées de 20 minutes à 40minutes, et personne ne voulait partir.
+        </p>
+        <p>
+          J'ai également commencé à <strong>impliquer des co-animateurs</strong> — des camarades
+          qui préparaient une thématique et animaient une partie du quiz. Cela a décuplé
+          l'engagement et a transformé le club en véritable projet collaboratif.
+        </p>
+        <div class="ref-pull">
+          Un bon organisateur ne fait pas tout seul — il crée les conditions pour que les autres
+          veuillent contribuer. C'est là que j'ai compris ce que « leadership » voulait vraiment dire.
+        </div>
+        <div class="ref-obj-list">
+          <span class="ref-obj-tag">OA 04 — Engagement maintenu</span>
+          <span class="ref-obj-tag">OA 05 — Collaboration renforcée</span>
+          <span class="ref-obj-tag">OA 03 — Planification adaptée</span>
+        </div>
+      </div>
+
+      <!-- RÉFLEXION 3 : DÉFIS -->
+      <div class="ref-entry fade-in">
+        <div class="ref-dot ref-dot-coral"></div>
+        <div class="ref-entry-header">
+          <span class="ref-phase rp-defi">Phase 3 · Défis &amp; Résolutions</span>
+          <span class="ref-date">Septembre – Décembre 2025</span>
+        </div>
+        <h3>Les obstacles rencontrés — et comment je les ai surmontés</h3>
+        <p>
+          Durant la deuxième partie de la 2ème annéedu BI, le club a failli faire mourir Entre les examens blancs et les cours de niveau supérieur. Le temps libre est devenu une ressource rare.
+          C'était décourageant.
+        </p>
+        <p>
+          J'ai failli abandonner. Mais j'ai réfléchi : pourquoi avais-je commencé ce projet ?
+          Pas pour un diplôme. Pas pour une case à cocher. Pour <strong>créer quelque chose qui n'existait pas</strong>
+          et qui avait de la valeur pour ma communauté scolaire. Abandonner trahirait cette intention.
+        </p>
+        <p>
+          J'ai donc perséveré et expéré en : faisant la promotiond du club sur les réseaux, en parlant de ce dernier au maximun pour créer une vage de bouches à oreilles.
+        </p>
+        <div class="ref-pull">
+          La vraie persévérance, ce n'est pas de ne jamais tomber. C'est de savoir adapter son projet
+          à la réalité sans en trahir l'essence.
+        </div>
+        <p>
+          Un autre défi inattendu : <strong>l'éthique du contenu</strong>. Lors du quiz sur les droits humains,
+          une question sur un conflit géopolitique récent a provoqué un débat tendu entre deux participants
+          aux opinions opposées. J'ai dû intervenir, calmer les esprits, et recadrer le quiz
+          dans un esprit d'apprentissage et non de débat idéologique. Ce moment m'a appris la
+          <strong>responsabilité de l'animateur</strong>.
+        </p>
+        <div class="ref-obj-list">
+          <span class="ref-obj-tag">OA 04 — Persévérance face aux obstacles</span>
+          <span class="ref-obj-tag">OA 07 — Éthique du contenu</span>
+          <span class="ref-obj-tag">OA 02 — Nouveau défi : gestion de conflits</span>
+        </div>
+      </div>
+
+      <!-- RÉFLEXION 4 : FINALITÉ -->
+      <div class="ref-entry fade-in">
+        <div class="ref-dot ref-dot-mint"></div>
+        <div class="ref-entry-header">
+          <span class="ref-phase rp-final">Phase 4 · Finalité &amp; Bilan</span>
+          <span class="ref-date">Mars – Juin 2026</span>
+        </div>
+        <h3>Ce que le Club de Culture G m'a appris — et laissé</h3>
+        <p>
+          Le grand quiz de clôture en mars 2026 a réuni <strong>18 participants</strong> —
+          le plus grand groupe depuis le début. Il y avait des élèves de 9e, 10e, 11e et 12e année.
+          Des nouvelles têtes que je n'avais jamais vues aux sessions précédentes.
+          Des profs qui avaient entendu parler du club et voulaient voir.
+          Ce moment m'a ému d'une façon que je n'attendais pas.
+        </p>
+        <p>
+          J'avais créé quelque chose qui <strong>existait maintenant indépendamment de moi</strong>.
+          Des camarades m'ont dit vouloir continuer le club l'année prochaine, même après mon départ.
+          C'est la plus belle preuve qu'un projet de service a réussi : quand il se perpétue
+          sans son initiateur.
+        </p>
+        <div class="ref-pull">
+          Le Club de Culture G m'a appris que le savoir est un bien commun.
+          Le partager, c'est le multiplier — pas le diviser.
+        </div>
+        <p>
+          Sur le plan personnel, ce projet m'a révélé des compétences que je ne me connaissais pas :
+          <strong>l'animation de groupe</strong>, la <strong>rédaction pédagogique</strong>,
+          la <strong>gestion de conflits</strong>, et surtout la capacité à maintenir un engagement
+          sur le long terme malgré la pression académique. Ces compétences dépassent largement le cadre du CAS.
+          Elles me serviront toute ma vie.
+        </p>
+        <p>
+          Et sur le plan intellectuel : en préparant des centaines de questions sur la politique,
+          la géographie, l'histoire, les sciences et la culture, <strong>j'ai appris autant que mes participants</strong>.
+          Sans m'en rendre compte, ce club est devenu mon propre cours de culture générale.
+        </p>
+        <div class="ref-obj-list">
+          <span class="ref-obj-tag">OA 01 — Bilan des compétences acquises</span>
+          <span class="ref-obj-tag">OA 05 — Impact collaboratif durable</span>
+          <span class="ref-obj-tag">OA 06 — Enjeux mondiaux intégrés</span>
+          <span class="ref-obj-tag">OA 07 — Éthique et responsabilité</span>
+        </div>
+      </div>
+
+    </div><!-- /ref-timeline -->
+
+    <!-- Closing banner -->
+    <div class="fade-in" style="margin-top:60px;background:linear-gradient(135deg,rgba(201,168,76,0.1),rgba(168,230,207,0.07));border:1px solid var(--border);border-radius:20px;padding:48px;text-align:center;position:relative;overflow:hidden;">
+      <div style="position:absolute;font-size:15rem;opacity:0.03;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;">🧠</div>
+      <div style="position:relative;z-index:1;">
+        <div class="section-tag">// Bilan du projet</div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.5rem);font-weight:900;margin:16px 0 20px;line-height:1.2;">
+          Un club né d'une question,<br>
+          <em style="font-style:italic;color:var(--gold);">devenu une communauté.</em>
+        </h2>
+        <p style="font-size:1rem;color:var(--muted);max-width:600px;margin:0 auto 28px;line-height:1.8;">
+          Le Club de Culture G a prouvé qu'une idée simple, portée avec conviction et persévérance,
+          peut <strong style="color:var(--text);">transformer une communauté scolaire</strong>.
+          Ce projet incarne ce que le CAS m'a enseigné de plus précieux :
+          agir, réfléchir, et recommencer — encore et encore.
+        </p>
+        <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+          <a href="reflexion.html" class="btn btn-primary">Lire la réflexion finale →</a>
+          <a href="cas.html" class="btn btn-outline">Voir toutes mes expériences CAS</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /proj-section reflexions -->
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- FOOTER                                            -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <p data-i18n="footer.line1">Perish Guialakong Demanou · Dossier CAS · Programme du Diplôme IB</p>
+    <p style="margin-top:8px;" data-i18n="footer.line2">Collège Catholique Franco-Ouest · Ottawa, Ontario · 2024–2026</p>
+  </footer>
+
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    function setLang(lang) {
+      i18n.currentLang = lang;
+      localStorage.setItem('cas_lang', lang);
+      i18n.apply();
+      document.getElementById('langFR').classList.toggle('active', lang === 'fr');
+      document.getElementById('langEN').classList.toggle('active', lang === 'en');
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('cas_lang') || 'fr';
+      setLang(saved);
+    });
+  </script>
+
+</body>
+</html>
